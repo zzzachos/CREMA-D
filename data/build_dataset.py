@@ -1,6 +1,9 @@
 import os
-path = "/data/AudioWAV/"
-os.chdir(path) # or do I need os.chdir("c:\\data\AudioWAV")?
+import random 
+
+projdir = os.getcwd() #start out in data folder
+path = projdir + "/AudioWAV/" 
+os.chdir(path) 
 
 filenames = os.listdir() 
 filenames.sort()
@@ -19,6 +22,8 @@ test_filenames = filenames[testsplitpoint:]
 os.mkdir("train")
 os.mkdir("dev")
 os.mkdir("test")
+    
+print(os.getcwd())
 
 for f in train_filenames:
     os.rename(path+f, path+"train/"+f)
