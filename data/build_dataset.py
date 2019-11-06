@@ -8,6 +8,16 @@ os.chdir(path)
 filenames = os.listdir() 
 filenames.sort()
 random.seed(204)
+'''
+Note: these files are not independent, so randomly shuffling the files to put
+them into 3 data sets will bias your results.
+To create a train, dev, and test set, you first need to
+group files with the same voices in them together so that all of them can be in one
+set.
+If you change this to shuffle the participant numbers, i.e. the first four digits of the
+filenames, and then put all filenames with that prefix into the correct set, then this 
+will work.
+'''
 random.shuffle(filenames)
 
 devsplitpoint = int(0.8*len(filenames))
